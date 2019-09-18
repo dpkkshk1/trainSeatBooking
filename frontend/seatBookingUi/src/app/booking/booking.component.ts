@@ -18,7 +18,7 @@ export class BookingComponent implements OnInit {
   }
   bookSeats(){
     this.bookingService.bookseats(this.seats).subscribe((res)=>{
-      console.log(res);
+
       this.bookedSeats = res;
       this.bookingService.invokeEvent.next(this.bookedSeats);
       this.route.navigate(["/seatmap"]);
