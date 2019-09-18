@@ -1,0 +1,9 @@
+
+<form #myform="ngForm" (ngSubmit)="bookSeats()">
+    <div class="form-group">
+      <label for="seats">No of Seats</label>
+      <input [(ngModel)]="seats"  name="seats" class="form-control" id="seats"  placeholder="Enter No of Seats">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
