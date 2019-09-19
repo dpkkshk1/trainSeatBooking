@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookingserviceService } from './bookingservice.service';
 import { Router } from '@angular/router';
 import { Seat } from './seats/Seat';
@@ -8,18 +8,12 @@ import { Seat } from './seats/Seat';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'seatBookingUi';
-  constructor(private bookingService:BookingserviceService,private route:Router) { }
-  seats:number;
-  bookedSeats:any;
-  bookSeats(){
-    this.bookingService.bookseats(this.seats).subscribe((res)=>{
-      console.log(res);
-      this.bookedSeats = res;
-      this.bookingService.invokeEvent.next(this.bookedSeats);
-      this.route.navigate(["/seatmap"]);
-    })
+export class AppComponent implements OnInit{
+  constructor(private router:Router) { }
+  ngOnInit(): void {
   }
+  title = 'seatBookingUi';
+
+ 
 
 }

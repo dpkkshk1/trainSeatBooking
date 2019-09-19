@@ -1,1 +1,24 @@
-<p>seats works!</p>
+<div class="card" style="width: 889px;margin-left:24%">
+        <div class="card-body" style="text-align: center">
+                <div style="display: inline;font-size: x-large">
+                        <i class="fas fa-chair" style="color: red" >Available Seats</i>
+                    <i class="fas fa-chair" style="color: purple"> Already Booked</i>
+                    <i class="fas fa-chair" style="color: green" > Assigned to you </i>
+            
+            </div>
+        </div>
+      </div>
+<div *ngFor="let i of seatmap; let ind1 = index" [attr.data-index]="ind1">
+<div class="card" style="width: 889px;margin-left:24%">
+        <div class="card-body" style="text-align: center">
+                <div *ngFor="let j of i; let ind2 =index"[attr.data-index]="ind2" style="display: inline;font-size: x-large">
+                   
+                        <i class="fas fa-chair" style="color: red" *ngIf="j==0"> {{(ind2+1)+(ind1*7)}}</i>
+                    <i class="fas fa-chair" style="color: purple"*ngIf="j==1"> {{(ind2+1)+(ind1*7)}}</i>
+                    <i class="fas fa-chair" style="color: green"*ngIf="j==2" > {{(ind2+1)+(ind1*7)}}</i>
+            
+            </div>
+        </div>
+      </div>
+      
+</div>

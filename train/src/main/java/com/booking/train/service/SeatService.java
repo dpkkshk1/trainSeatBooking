@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.booking.train.exception.SeatException;
 import com.booking.train.model.Seat;
 import com.booking.train.repository.SeatRepository;
 
@@ -13,7 +14,7 @@ import com.booking.train.repository.SeatRepository;
 public class SeatService {
 	@Autowired
 	SeatRepository seatRepository;
-	public List<Seat> bookSeats(int seats) {
+	public List<Seat> bookSeats(int seats) throws Exception{
 		//get Seats Already booked from database
 		List<Seat> seatList = seatRepository.findAll();
 		
@@ -42,7 +43,6 @@ public class SeatService {
 				for (int j = 1; j <= seats; j++) {
 					Seat seatrow = new Seat();
 					seatrow.setSeatno(((7 - rowmap[i]) + 7 * (i - 1)) + j);
-					System.out.println(seatrow.getSeatno());
 					bookedSeats.add(seatrow);
 
 				}
@@ -95,6 +95,10 @@ public class SeatService {
 				}
 			}
 
+		}
+		if(bookedSeats.isEmpty()) {
+			System.out.println("error in creatting");
+			throw new SeatException("Already Booked");
 		}
 		seatRepository.saveAll(bookedSeats);
 		return bookedSeats;
