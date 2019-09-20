@@ -5,7 +5,7 @@
           <form #myform="ngForm" (ngSubmit)="bookSeats()">
               <div class="form-group">
                 <label for="seats" class="sr-only">No of Seats</label>
-                <input [(ngModel)]="seats"  name="seats" class="form-control" id="seats"  placeholder="Please Enter No of Seats You want to book">
+                <input [(ngModel)]="seats"  name="seats" class="form-control" id="seats"  placeholder="Please Enter No of Seats You want to book" max="7">
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
