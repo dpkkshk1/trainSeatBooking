@@ -1,9 +1,13 @@
 
-<form #myform="ngForm" (ngSubmit)="bookSeats()">
-    <div class="form-group">
-      <label for="seats">No of Seats</label>
-      <input [(ngModel)]="seats"  name="seats" class="form-control" id="seats"  placeholder="Enter No of Seats">
+
+  <div class="card" style="width: 889px;margin-left:24%;margin-top: 15%">
+      <div class="card-body" style="text-align: center">
+          <form #myform="ngForm" (ngSubmit)="bookSeats()">
+              <div class="form-group">
+                <label for="seats" class="sr-only">No of Seats</label>
+                <input [(ngModel)]="seats"  name="seats" class="form-control" id="seats"  placeholder="Please Enter No of Seats You want to book" max="7">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
