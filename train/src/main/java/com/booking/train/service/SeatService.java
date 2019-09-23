@@ -100,7 +100,10 @@ public class SeatService {
 			System.out.println("error in creatting");
 			throw new SeatException("Already Booked");
 		}
-		seatRepository.saveAll(bookedSeats);
+		bookedSeats = seatRepository.saveAll(bookedSeats);
+		for (Seat seat : bookedSeats) {
+			System.out.print(seat.getSeatno());
+		}
 		return bookedSeats;
 	}
 	
